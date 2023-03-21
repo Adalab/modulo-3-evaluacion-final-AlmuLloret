@@ -1,0 +1,13 @@
+.card{
+    color:red; 
+    &__img{
+        height: 318px;
+        width: 245px;;
+    }
+    &__name{
+        font-size: 12px;
+    }
+    &__text{
+        font-size: 10px; 
+    }
+}

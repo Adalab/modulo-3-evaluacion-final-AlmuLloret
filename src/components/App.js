@@ -29,7 +29,7 @@ function App() {
       console.log(dataCharacters);
       setAllChar(dataCharacters);
     });
-  }, []);
+  }, [inputHouse]);
 
 
 
@@ -66,6 +66,7 @@ function App() {
       inputName={inputName}
       handleInputName={handleInputName}
       handleInputHouse={handleInputHouse}
+      inputHouse={inputHouse}
       />
       <CharacterList allChar={renderCharacters()}/>
     </main>

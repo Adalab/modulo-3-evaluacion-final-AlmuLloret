@@ -1,11 +1,11 @@
-function FilterHouse({handleInputHouse}) {
+function FilterHouse({handleInputHouse, inputHouse}) {
   const handleHouse = (ev) => {
      handleInputHouse(ev.target.value);
   }
 
   return (
       <label htmlFor="house" > Pick a house 
-          <select name="house" id="house" onChange={handleHouse} >
+          <select name="house" id="house" onChange={handleHouse} value={inputHouse} >
             <option value="Gryffindor">Gryffindor</option>
             <option value="Slytherin">Slytherin </option>
             <option value="Hufflepuff">Hufflepuff</option>

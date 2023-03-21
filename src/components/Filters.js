@@ -2,7 +2,7 @@ import FilterHouse  from "./FilterHouse";
 import FilterSpecie from './FilterSpecie'
 import FilterName from "./FilterName";
 
-function Filters({handleInputName, inputName, handleInputHouse}) {
+function Filters({handleInputName, inputName, handleInputHouse, inputHouse}) {
   return (
     <section className="filter">
       <form>
@@ -11,7 +11,9 @@ function Filters({handleInputName, inputName, handleInputHouse}) {
         inputName={inputName}
        />
         <FilterSpecie />
-        <FilterHouse  handleInputHouse={handleInputHouse}/>
+        <FilterHouse  
+        handleInputHouse={handleInputHouse}
+        inputHouse={inputHouse}/>
       </form>
     </section>
   );

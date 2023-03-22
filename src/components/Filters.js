@@ -3,8 +3,6 @@ import FilterSpecie from './FilterSpecie'
 import FilterName from "./FilterName";
 
 function Filters({handleInputName, inputName, handleInputHouse, inputHouse}) {
-  
-
   return (
     <section className="filter">
       <form>
@@ -16,9 +14,7 @@ function Filters({handleInputName, inputName, handleInputHouse, inputHouse}) {
         <FilterHouse  
         handleInputHouse={handleInputHouse}
         inputHouse={inputHouse}/>
-        
       </form>
-      
     </section>
   );
 }

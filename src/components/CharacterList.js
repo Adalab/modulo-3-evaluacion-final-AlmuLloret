@@ -1,17 +1,14 @@
 import Character from "./Character";
+import ErrorMsj from "./ErrorMsj";
 
-function CharacterList({allChar, inputName}) {
-  let errorMsg; 
-  allChar.length!==0  ? errorMsg= '' : errorMsg= `Disculpa, no encontramos a ${inputName}. ¡Busca en otra casa!`;  
+function CharacterList({allChar, inputName}) { 
   const listHtml = allChar.map((eachCharacter) => {
     return <Character eachCharacter={eachCharacter} key={eachCharacter.id} />;
-
   });
   return (
         <section >
-      <p>{errorMsg}</p>
+      <ErrorMsj allChar={allChar} inputName={inputName}/>
       <ul >{listHtml}</ul>
-      
     </section>
   );
 }

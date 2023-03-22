@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import getDataApi from '../services/api';
 import CharacterList from './CharacterList';
 import Filters from './Filters';
-import { matchPath, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useMatch } from 'react-router-dom';
 import CharacterDetail from './CharacterDetail'; 
+import Error404 from "./Error404";
 
 // - De React
 // - Nuestros
@@ -18,7 +19,7 @@ import '../styles/App.scss';
 function App() {
 
   /* VARIABLES ESTADO (DATOS) */
-  //const [allCharG , setAllCharG] = useState ([]); 
+ 
   const [allChar , setAllChar] = useState ([]); 
   const [inputName, setInputName] = useState (''); 
   const [inputHouse, setInputHouse] = useState ('Gryffindor')
@@ -33,12 +34,8 @@ function App() {
     });
   }, [inputHouse]);
 
-
-
   /* FUNCIONES HANDLER */
 
-
-  
   const handleInputName = (value) => {
     setInputName(value);
   };
@@ -46,7 +43,6 @@ function App() {
   const handleInputHouse = (value) => {
     setInputHouse(value);
   };
-
 
   const renderCharacters = () => {
     const filteredChar = allChar.filter ((eachChar) =>
@@ -56,17 +52,28 @@ function App() {
   }; 
 
 
-
   /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
+  
+  // const { pathname } = useLocation();
+  // const dataUrl = matchPath('/character/:id', pathname);
+  // const characterId = dataUrl !== null ? dataUrl.params.id : null;
+  // const characterFind = renderCharacters().find(
+  //   (eachCharacter) => eachCharacter.id ===  characterId
+  // );
+  
+  const routeCharacterData = useMatch('/Character/:id');
 
-  const { pathname } = useLocation();
-  const dataUrl = matchPath('/contact/:id', pathname);
-  const characterId = dataUrl !== null ? dataUrl.params.id : null;
-  const characterFind = renderCharacters().find(
-    (eachContact) => eachContact.id ===  characterId
-  );
-
-
+  const getRouteCharacter = () => {
+    if (routeCharacterData) {
+      const routeCharacterId = routeCharacterData.params.id;
+      const routeCharacter = allChar.find(Character => {
+        return Character.id === routeCharacterId;
+      });
+      console.log(routeCharacter);
+      return routeCharacter || [];
+    }
+  };
+  
   /* HTML */
   return(
   <div className="container">
@@ -87,10 +94,12 @@ function App() {
             </>
           }
         ></Route>
-         <Route
-            path="/contact/:id"
-            element={<CharacterDetail characterFind={characterFind} />}
-          />
+        
+        <Route
+            path="/character/:id"
+            element={<CharacterDetail character={getRouteCharacter()}/>}
+        />
+        <Route path="*" element={<Error404/>}></Route>
       </Routes>
     </main>
   </div>

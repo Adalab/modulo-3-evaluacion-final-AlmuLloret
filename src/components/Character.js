@@ -2,8 +2,9 @@ import '../styles/Character.scss';
 import { Link } from 'react-router-dom';
 
 function Character({eachCharacter}) {
+
     return (
-      <Link to={`/contact/${eachCharacter.id}`}>
+      <Link to={`/character/${eachCharacter.id}`}>
         <li className="card">
           <img
             className="card__img"
@@ -21,4 +22,5 @@ function Character({eachCharacter}) {
       </Link>
     );
   }
+
   export default Character;

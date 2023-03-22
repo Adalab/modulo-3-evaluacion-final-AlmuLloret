@@ -4,7 +4,7 @@ function FilterHouse({handleInputHouse, inputHouse}) {
   }
 
   return (
-      <label htmlFor="house" > Pick a house 
+      <label htmlFor="house" > Selecciona la casa
           <select name="house" id="house" onChange={handleHouse} value={inputHouse} >
             <option value="Gryffindor">Gryffindor</option>
             <option value="Slytherin">Slytherin </option>

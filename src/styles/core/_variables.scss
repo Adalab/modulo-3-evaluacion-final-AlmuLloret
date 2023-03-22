@@ -1,0 +1,15 @@
+// Defaul font-size
+$defaultFontSize: 16;
+
+// Size for media-queries
+// To use media queries for tablet for example please write:
+// @include tablet {
+// }
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+$font1: 'Eagle Lake', cursive;
+
+$color1: rgb(245, 241, 222); 
+

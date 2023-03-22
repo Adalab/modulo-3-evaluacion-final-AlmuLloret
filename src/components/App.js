@@ -23,7 +23,7 @@ function App() {
   const [allChar , setAllChar] = useState ([]); 
   const [inputName, setInputName] = useState (''); 
   const [inputHouse, setInputHouse] = useState ('Gryffindor')
-  //const [inputSpecie, setInputSpecie] = useState('');
+  const [inputSpecie, setInputSpecie] = useState('');
 
   /* EFECTOS (código cuando carga la página) */
 
@@ -35,6 +35,23 @@ function App() {
   }, [inputHouse]);
 
   /* FUNCIONES HANDLER */
+
+  const handleInputSpecie = (value) => {
+    if (inputSpecie.includes(value)) {
+      const position = inputSpecie.indexOf(value);
+      inputSpecie.splice(position, 1);
+      setInputSpecie([...inputSpecie]);
+    } else {
+      setInputSpecie([...inputSpecie, value]);
+    }
+  };
+
+  const getSpecies = () => {
+    const species = allChar.map((eachCharacter) =>eachCharacter.species);
+    const uniqueSpecie = new Set(species);
+    const speciesArray = [...uniqueSpecie];
+    return speciesArray;
+  };
 
   const handleInputName = (value) => {
     setInputName(value);
@@ -77,8 +94,10 @@ function App() {
   /* HTML */
   return(
   <div className="container">
-    <h1>Harry Potter</h1>
-    <main>
+    <header className='header'>
+       <h1 className='header_h1'>Bienvenido a Hogwarts</h1>
+    </header>
+    <main className='main'>
       <Routes>
         <Route 
           path='/'
@@ -90,7 +109,10 @@ function App() {
               handleInputHouse={handleInputHouse}
               inputHouse={inputHouse} />
               <CharacterList allChar={renderCharacters()}
-              inputName={inputName} />
+              inputName={inputName} 
+              species={getSpecies}
+              handleInputSpecie={handleInputSpecie}
+              inputSpecie={inputSpecie}/>
             </>
           }
         ></Route>

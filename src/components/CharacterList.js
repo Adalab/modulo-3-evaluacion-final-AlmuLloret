@@ -6,9 +6,9 @@ function CharacterList({allChar, inputName}) {
     return <Character eachCharacter={eachCharacter} key={eachCharacter.id} />;
   });
   return (
-        <section >
+        <section className="char" >
       <ErrorMsj allChar={allChar} inputName={inputName}/>
-      <ul >{listHtml}</ul>
+      <ul className="char__list">{listHtml}</ul>
     </section>
   );
 }

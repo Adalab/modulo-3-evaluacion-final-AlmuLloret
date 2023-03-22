@@ -1,9 +1,10 @@
 import '../styles/Character.scss';
+import { Link } from 'react-router-dom';
 
 function Character({eachCharacter}) {
     return (
-      <li className="card">
-    <a href=".">
+      <Link to={`/contact/${eachCharacter.id}`}>
+        <li className="card">
           <img
             className="card__img"
             src={eachCharacter.image}
@@ -16,8 +17,8 @@ function Character({eachCharacter}) {
           <p className="card__text">
             {eachCharacter.species}
           </p>
-          </a>
-      </li>
+        </li>
+      </Link>
     );
   }
   export default Character;

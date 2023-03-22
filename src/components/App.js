@@ -20,7 +20,8 @@ function App() {
   const [allChar , setAllChar] = useState ([]); 
   const [inputName, setInputName] = useState (''); 
   const [inputHouse, setInputHouse] = useState ('Gryffindor')
-  const [inputSpecie, setInputSpecie] = useState('');
+  //const [inputSpecie, setInputSpecie] = useState('');
+  // const [errorMsg, setErrorMsg] = useState (''); 
 
   /* EFECTOS (código cuando carga la página) */
 
@@ -34,6 +35,8 @@ function App() {
 
 
   /* FUNCIONES HANDLER */
+
+
   
   const handleInputName = (value) => {
     setInputName(value);
@@ -43,10 +46,16 @@ function App() {
     setInputHouse(value);
   };
 
+  //   const handleErrorMessage = () => {
+  //    setErrorMsg('a'); 
+  //    return errorMsg; 
+  //  };
+
   const renderCharacters = () => {
     const filteredChar = allChar.filter ((eachChar) =>
-    eachChar.name.toLowerCase().includes(inputName.toLowerCase()));
+    eachChar.name.toLowerCase().includes(inputName.toLowerCase()));    
     return filteredChar; 
+
   }; 
 
 
@@ -67,8 +76,11 @@ function App() {
       handleInputName={handleInputName}
       handleInputHouse={handleInputHouse}
       inputHouse={inputHouse}
+      
       />
-      <CharacterList allChar={renderCharacters()}/>
+      <CharacterList allChar={renderCharacters()}
+      inputName={inputName}
+      />
     </main>
   </div>
   ); 

@@ -48,6 +48,7 @@ function Filters({
           inputOrder={inputOrder}
         />
         <input
+          className="reset"
           onClick={handleReset}
           value="reset"
           type="button"

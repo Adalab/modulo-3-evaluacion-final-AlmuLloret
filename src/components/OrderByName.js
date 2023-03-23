@@ -7,7 +7,13 @@ function OrderByName({ handleInputOrder, inputOrder }) {
   return (
     <label htmlFor="order">
       Ordenar
-      <select name="order" id="order" onChange={handleOrder} value={inputOrder}>
+      <select
+        name="order"
+        id="order"
+        onChange={handleOrder}
+        value={inputOrder}
+        className="input"
+      >
         <option value="random">Libre albedrío</option>
         <option value="abc">Alfabeticamente</option>
       </select>

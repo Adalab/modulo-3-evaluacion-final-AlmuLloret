@@ -44,7 +44,9 @@ function Character({ characterSelected }) {
 
     return (
       <article>
-        <Link to={"/"}>Volver</Link>
+        <Link className="detail" to={"/"}>
+          Volver
+        </Link>
         <div className="detail__card">
           <img
             className="card__img"

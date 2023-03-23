@@ -1,4 +1,4 @@
-# Cocktail Search Application
+# Harry Potter Saga Character Search Application
 
 This web application grant you access to a Harry Potter database. You can search characters by its name, filter and reorder them. You can also view and  the detail of any particular character. It is resposive and has been design following a Mobile First strategy. 
 

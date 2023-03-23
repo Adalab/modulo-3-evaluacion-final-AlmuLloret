@@ -1,10 +1,10 @@
 import "../styles/Character.scss";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Gryffindor from "../images/Gryffindor.jpg";
-import Slytherin from "../images/Slytherin.jpg";
-import Hufflepuff from "../images/Hufflepuff.jpg";
-import Ravenclaw from "../images/Ravenclaw.jpg";
+import Gryffindor from "../../public/Gryffindor.jpg";
+import Slytherin from "../../public/Slytherin.jpg";
+import Hufflepuff from "../../public/Hufflepuff.jpg";
+import Ravenclaw from "../../public/Ravenclaw.jpg";
 import Error404 from "./Error404";
 
 function Character({ characterSelected }) {
@@ -27,20 +27,27 @@ function Character({ characterSelected }) {
         ? ""
         : `Patronus: ${characterSelected.patronus}`;
 
-    const getHouse = () => {
-      if (characterSelected.house === "Gryffindor") {
-        return Gryffindor;
-      }
-      if (characterSelected.house === "Ravenclaw") {
-        return Ravenclaw;
-      }
-      if (characterSelected.house === "Slytherin") {
-        return Slytherin;
-      }
-      if (characterSelected.house === "Hufflepuff") {
-        return Hufflepuff;
-      }
+    const houses = {
+      Gryffindor: Gryffindor,
+      Ravenclaw: Ravenclaw,
+      Slytherin: Slytherin,
+      Hufflepuff: Hufflepuff,
     };
+
+    // const getHouse = () => {
+    //   if (characterSelected.house === "Gryffindor") {
+    //     return Gryffindor;
+    //   }
+    //   if (characterSelected.house === "Ravenclaw") {
+    //     return Ravenclaw;
+    //   }
+    //   if (characterSelected.house === "Slytherin") {
+    //     return Slytherin;
+    //   }
+    //   if (characterSelected.house === "Hufflepuff") {
+    //     return Hufflepuff;
+    //   }
+    // };
 
     return (
       <article>
@@ -63,7 +70,7 @@ function Character({ characterSelected }) {
             <p className="card__text">{patronusHtml}</p>
             <img
               className="card__crest"
-              src={getHouse()}
+              src={houses[characterSelected.house.toLowerCase()]}
               alt="Pic"
               title="Pic"
             ></img>

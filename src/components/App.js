@@ -22,8 +22,7 @@ function App() {
   const [allChar, setAllChar] = useState([]);
   const [inputName, setInputName] = useState("");
   const [inputHouse, setInputHouse] = useState("Gryffindor");
-  //const [inputSpecie, setInputSpecie] = useState('');
-  //const [inputOrder, setInputOrder] = useState(false);
+  const [inputOrder, setInputOrder] = useState(false);
   const [inputStatus, setInputStatus] = useState("all");
 
   /* EFECTOS (código cuando carga la página) */
@@ -37,28 +36,15 @@ function App() {
 
   /* FUNCIONES HANDLER */
 
-  // const handleInputSpecie = (value) => {
-  //   if (inputSpecie.includes(value)) {
-  //     const position = inputSpecie.indexOf(value);
-  //     inputSpecie.splice(position, 1);
-  //     setInputSpecie([...inputSpecie]);
-  //   } else {
-  //     setInputSpecie([...inputSpecie, value]);
-  //   }
-  // };
-
-  // const getSpecies = () => {
-  //   const species = allChar.map((eachCharacter) =>eachCharacter.species);
-  //   const uniqueSpecie = new Set(species);
-  //   const speciesArray = [...uniqueSpecie];
-  //   return speciesArray;
-  // };
-
   const handleInputReset = () => {
     setInputName("");
     setInputHouse("Gryffindor");
     setInputStatus("all");
   };
+  const handleInputOrder = (value) => {
+    setInputOrder(value);
+  };
+
   const handleInputAlive = (value) => {
     setInputStatus(value);
   };
@@ -120,14 +106,12 @@ function App() {
                   handleInputAlive={handleInputAlive}
                   inputStatus={inputStatus}
                   handleInputReset={handleInputReset}
+                  handleInputOrder={handleInputOrder}
+                  inputOrder={inputOrder}
                 />
                 <CharacterList
                   allChar={renderCharacters()}
                   inputName={inputName}
-                  handleInputReset={handleInputReset}
-                  // species={getSpecies}
-                  // handleInputSpecie={handleInputSpecie}
-                  // inputSpecie={inputSpecie}
                 />
               </>
             }

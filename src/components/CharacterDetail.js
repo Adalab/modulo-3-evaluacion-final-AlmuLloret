@@ -5,6 +5,7 @@ import Gryffindor from "../images/Gryffindor.jpg";
 import Slytherin from "../images/Slytherin.jpg";
 import Hufflepuff from "../images/Hufflepuff.jpg";
 import Ravenclaw from "../images/Ravenclaw.jpg";
+import Error404 from "./Error404";
 
 function Character({ characterSelected }) {
   if (characterSelected !== undefined) {
@@ -73,11 +74,7 @@ function Character({ characterSelected }) {
   } else {
     return (
       <article>
-        <p>No encontramos ese personaje </p>
-        <Link className="detail" to={"/"}>
-          {" "}
-          Volver{" "}
-        </Link>
+        <Error404 />
       </article>
     );
   }

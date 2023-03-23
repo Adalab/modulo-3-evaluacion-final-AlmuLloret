@@ -2,7 +2,7 @@ import FilterHouse from "./FilterHouse";
 import FilterSpecie from "./FilterSpecie";
 import FilterName from "./FilterName";
 import FilterAlive from "./FilterAlive";
-import Reset from "./Reset";
+import OrderByName from "./OrderByName";
 
 function Filters({
   handleInputName,
@@ -14,11 +14,20 @@ function Filters({
   inputSpecie,
   handleInputAlive,
   inputStatus,
-  handleInputReset = { handleInputReset },
+  handleInputReset,
+  handleInputOrder,
+  inputOrder,
 }) {
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
+  const handleReset = () => {
+    handleInputReset();
+  };
+
   return (
     <section>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <FilterName handleInputName={handleInputName} inputName={inputName} />
         <FilterSpecie
           species={species}
@@ -33,11 +42,16 @@ function Filters({
           handleInputAlive={handleInputAlive}
           inputStatus={inputStatus}
         />
-        <Reset
-          chandleInputReset={handleInputReset}
-          inputHouse={inputHouse}
-          inputStatus={inputStatus}
-          inputName={inputName}
+        <OrderByName
+          handleInputOrder={handleInputOrder}
+          inputOrder={inputOrder}
+        />
+        <input
+          onClick={handleReset}
+          value="reset"
+          type="button"
+          name="reset"
+          id="reset"
         />
       </form>
     </section>

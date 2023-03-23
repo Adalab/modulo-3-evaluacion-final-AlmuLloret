@@ -27,8 +27,6 @@
     text-align: center;
     background-color: rgb(53, 43, 82);
     width: 80%; 
-    font-size:2.8rem;
-    color: $color1; 
     text-shadow: 0 2px 3px black;
     background-image: url(../../public/header.png); 
     width: 100%;
@@ -36,10 +34,7 @@
     background-repeat: no-repeat;
     height: 500px; 
     border: balck 5px; 
-    margin-bottom: 150px;
-    &_h1{
-        transform: translateY(150px);
-    }
+  
 }
 .main{
     transform: translateY(-10px);
@@ -47,19 +42,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    //background-color:rgb(19,22,31); 
     opacity: 0.9;
     width: 90%; 
+    margin-bottom: 100px;
 }
-.form{
-    opacity: 1;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    font-family: $font1;
-    margin-top: 50px;
-    font-size: 2.2rem;
+
+.search{
+    &__form{
+        opacity: 1;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        font-family: $font1;
+        margin-top: 50px;
+        font-size: 2.2rem;
+    }
+    &__h1{
+        font-size:5rem;
+        color: $color1; 
+    }
 }
 
 .char{
@@ -103,7 +105,7 @@
     border: 5px white; 
     height: 500px; 
     width: 350px;  
-    margin-bottom: 20px;
+    
 
 
     &__img{
@@ -123,11 +125,19 @@
         text-decoration: none;
  
     }
+    &__crest{
+        margin-top: 20px;
+        height: 220px;
+        width: 180px; 
+        contain: contain;
+    }
+    
 }
 .detail{
     color: $color1; 
     text-decoration: none;
     margin-top: 15px;
+    margin-bottom: 50px;
     &__card{
     display: flex;
     flex-direction: column;
@@ -138,7 +148,20 @@
     
     }
     &__info{
-        margin-top: 20px;
+        
+        display: flex; 
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}
 
+.mainError{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    &__h1{
+        margin-top: 50px;
     }
 }

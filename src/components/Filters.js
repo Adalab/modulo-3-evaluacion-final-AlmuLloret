@@ -26,8 +26,9 @@ function Filters({
   };
 
   return (
-    <section>
-      <form className="form" onSubmit={handleSubmit}>
+    <section className="search">
+      <h1 className="search__h1">Bienvenido a Hogwarts</h1>
+      <form className="search__form" onSubmit={handleSubmit}>
         <FilterName handleInputName={handleInputName} inputName={inputName} />
         <FilterSpecie
           species={species}

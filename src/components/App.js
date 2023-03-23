@@ -22,7 +22,7 @@ function App() {
   const [allChar, setAllChar] = useState([]);
   const [inputName, setInputName] = useState("");
   const [inputHouse, setInputHouse] = useState("Gryffindor");
-  const [inputOrder, setInputOrder] = useState(false);
+  const [inputOrder, setInputOrder] = useState("random");
   const [inputStatus, setInputStatus] = useState("all");
 
   /* EFECTOS (código cuando carga la página) */
@@ -40,6 +40,7 @@ function App() {
     setInputName("");
     setInputHouse("Gryffindor");
     setInputStatus("all");
+    setInputOrder("random");
   };
   const handleInputOrder = (value) => {
     setInputOrder(value);
@@ -57,18 +58,35 @@ function App() {
   };
 
   const renderCharacters = () => {
-    const filteredChar = allChar
-      .filter((eachChar) =>
-        eachChar.name.toLowerCase().includes(inputName.toLowerCase())
-      )
-      .filter((eachChar) => {
-        if (inputStatus === "vivo") {
-          return eachChar.alive === true;
-        } else if (inputStatus === "muerto") {
-          return eachChar.alive === false;
-        } else return true;
-      });
-    return filteredChar;
+    if (inputOrder === "random") {
+      const filteredChar = allChar
+        .sort((a, b) => a.id.localeCompare(b.id))
+        .filter((eachChar) =>
+          eachChar.name.toLowerCase().includes(inputName.toLowerCase())
+        )
+        .filter((eachChar) => {
+          if (inputStatus === "vivo") {
+            return eachChar.alive === true;
+          } else if (inputStatus === "muerto") {
+            return eachChar.alive === false;
+          } else return true;
+        });
+      return filteredChar;
+    } else if (inputOrder === "abc") {
+      const filtered2Char = allChar
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .filter((eachChar) =>
+          eachChar.name.toLowerCase().includes(inputName.toLowerCase())
+        )
+        .filter((eachChar) => {
+          if (inputStatus === "vivo") {
+            return eachChar.alive === true;
+          } else if (inputStatus === "muerto") {
+            return eachChar.alive === false;
+          } else return true;
+        });
+      return filtered2Char;
+    }
   };
 
   /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
@@ -90,7 +108,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="header_h1">Bienvenido a Hogwarts</h1>
+        {/* <h1 className="header_h1">Bienvenido a Hogwarts</h1> */}
       </header>
       <main className="main">
         <Routes>

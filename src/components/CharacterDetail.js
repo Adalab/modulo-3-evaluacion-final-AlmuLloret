@@ -44,9 +44,7 @@ function Character({ characterSelected }) {
 
     return (
       <article>
-        <Link className="detail" to={"/"}>
-          Volver
-        </Link>
+        <Link to={"/"}>Volver</Link>
         <div className="detail__card">
           <img
             className="card__img"
@@ -62,7 +60,7 @@ function Character({ characterSelected }) {
             <p className="card__text">Casa: {characterSelected.house}</p>
             <p className="card__text">{patronusHtml}</p>
             <img
-              className="card__escudo"
+              className="card__crest"
               src={getHouse()}
               alt="Pic"
               title="Pic"

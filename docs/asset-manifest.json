@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.98c6b761.css",
-    "main.js": "./static/js/main.b88492d8.js",
+    "main.js": "./static/js/main.01aea620.js",
     "static/media/h.jpg": "./static/media/h.4ff0287ea464daa0efb3.jpg",
     "static/media/header.png": "./static/media/header.be6af4237f01dee706d1.png",
     "static/media/Slytherin.jpg": "./static/media/Slytherin.1f99dc2c302fed690dc7.jpg",
@@ -13,10 +13,10 @@
     "static/media/r.jpg": "./static/media/r.d92161b44c2a165df73c.jpg",
     "index.html": "./index.html",
     "main.98c6b761.css.map": "./static/css/main.98c6b761.css.map",
-    "main.b88492d8.js.map": "./static/js/main.b88492d8.js.map"
+    "main.01aea620.js.map": "./static/js/main.01aea620.js.map"
   },
   "entrypoints": [
     "static/css/main.98c6b761.css",
-    "static/js/main.b88492d8.js"
+    "static/js/main.01aea620.js"
   ]
 }

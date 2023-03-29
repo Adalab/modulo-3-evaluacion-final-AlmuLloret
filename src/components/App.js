@@ -59,8 +59,8 @@ function App() {
 
   const renderCharacters = () => {
     if (inputOrder === "random") {
-      const filteredChar = allChar
-        .sort((a, b) => a.id.localeCompare(b.id))
+      const filteredChar = [...allChar]
+        //.sort((a, b) => a.id.localeCompare(b.id))
         .filter((eachChar) =>
           eachChar.name.toLowerCase().includes(inputName.toLowerCase())
         )
@@ -73,7 +73,7 @@ function App() {
         });
       return filteredChar;
     } else if (inputOrder === "abc") {
-      const filtered2Char = allChar
+      const filtered2Char = [...allChar]
         .sort((a, b) => a.name.localeCompare(b.name))
         .filter((eachChar) =>
           eachChar.name.toLowerCase().includes(inputName.toLowerCase())

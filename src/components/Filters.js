@@ -1,5 +1,4 @@
 import FilterHouse from "./FilterHouse";
-import FilterSpecie from "./FilterSpecie";
 import FilterName from "./FilterName";
 import FilterAlive from "./FilterAlive";
 import OrderByName from "./OrderByName";
@@ -30,11 +29,6 @@ function Filters({
       <h1 className="search__h1">Bienvenido a Hogwarts</h1>
       <form className="search__form" onSubmit={handleSubmit}>
         <FilterName handleInputName={handleInputName} inputName={inputName} />
-        <FilterSpecie
-          species={species}
-          handleInputSpecie={handleInputSpecie}
-          inputSpecie={inputSpecie}
-        />
         <FilterHouse
           handleInputHouse={handleInputHouse}
           inputHouse={inputHouse}
